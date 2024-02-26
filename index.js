@@ -8,6 +8,9 @@ mongoose.set('strictQuery', true);
 const app = express();
 const PORT = 8005;
 
+//middleware 
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 mongoose.connect("mongodb://127.0.0.1:27017/dlms").then(()=>{
     console.log("mongodb connected")
