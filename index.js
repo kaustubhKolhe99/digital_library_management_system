@@ -1,12 +1,12 @@
 const {connectToMongoDB} = require("./connect")
-const loginpageRouter = require("./routes/login")
+const loginpageRouter = require("./routes/loginAndRegistration")
 const express = require("express")
 const path = require("path")
 const mongoose = require("mongoose")
 mongoose.set('strictQuery', true);
 
 const app = express();
-const PORT = 8005;
+const PORT = 8000;
 
 //middleware 
 app.use(express.json());

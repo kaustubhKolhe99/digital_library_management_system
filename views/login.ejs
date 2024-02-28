@@ -51,7 +51,7 @@
 <body>
     <div class="login-container">
         <h2>Welcome to Digital Library Management System</h2>
-        <form action="login_process.php" method="POST">
+        <form action="/login" method="post">
             <label for="user_type">Select User Type:</label>
             <select id="user_type" name="user_type">
                 <option value="user">User</option>
@@ -63,7 +63,7 @@
             <input type="password" id="password" name="password" required>
             <button type="submit">Login</button>
         </form>
-        <p>New user? <a href="registration">Register here</a></p>
+        <p>New user? <a href="/registration">Register here</a></p>
     </div>
 </body>
 </html>
