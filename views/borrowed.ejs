@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Borrowing History - Digital Library Management</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 50px;
+    }
+    .header {
+        color: #45a049;
+        font-size: 32px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .history-list {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .history-item {
+        border-bottom: 1px solid #ddd;
+        padding: 20px 0;
+    }
+    .book-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .book-info h3 {
+        color: #333;
+        margin: 0;
+    }
+    .book-info p {
+        color: #666;
+        margin: 5px 0;
+    }
+    .date-info {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="header">Borrowing History</div>
+    <div class="history-list">
+        <div class="history-item">
+            <div class="book-info">
+                <div>
+                    <h3>Book Title 1</h3>
+                    <p>Author: Author Name 1</p>
+                    <p>ISBN: 1234567890</p>
+                </div>
+                <p>Return Date: January 15, 2024</p>
+            </div>
+            <div class="date-info">
+                <p>Borrowed: January 1, 2024</p>
+                <p>Returned: January 10, 2024</p>
+            </div>
+        </div>
+        <div class="history-item">
+            <div class="book-info">
+                <div>
+                    <h3>Book Title 2</h3>
+                    <p>Author: Author Name 2</p>
+                    <p>ISBN: 0987654321</p>
+                </div>
+                <p>Return Date: February 5, 2024</p>
+            </div>
+            <div class="date-info">
+                <p>Borrowed: January 20, 2024</p>
+                <p>Returned: Not returned yet</p>
+            </div>
+        </div>
+        <!-- Add more history items as necessary -->
+    </div>
+</div>
+</body>
+</html>
