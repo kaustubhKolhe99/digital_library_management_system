@@ -3,7 +3,7 @@ const loginpageRouter = require("./routes/loginAndRegistration")
 const express = require("express")
 const path = require("path")
 const mongoose = require("mongoose")
-mongoose.set('strictQuery', true);
+mongoose.set('strictQuery', false);
 
 const app = express();
 const PORT = 8000;
@@ -12,7 +12,7 @@ const PORT = 8000;
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-mongoose.connect("mongodb://127.0.0.1:27017/dlms").then(()=>{
+mongoose.connect('mongodb://127.0.0.1:27017/dlms').then(()=>{
     console.log("mongodb connected")
 })
 
