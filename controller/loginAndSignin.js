@@ -24,6 +24,7 @@ async function handleCreateNewUser(req, res){
         dob:birthdate,
         yearOfStudying:year_of_studying,
         department:department,
+        isAdmin: false,
     })
     res.redirect("/dashboard")
         
