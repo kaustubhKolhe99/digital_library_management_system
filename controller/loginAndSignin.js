@@ -1,4 +1,5 @@
-const User = require("../models/user")
+const User = require("../models/user");
+const {setUser, getUser} = require("../service/auth");
 async function handleCreateNewUser(req, res){
     const {name,
         email,
@@ -29,26 +30,27 @@ async function handleCreateNewUser(req, res){
     res.redirect("/dashboard")
         
 }
-async function loginUser(req, res){
+async function handleloginUser(req, res){
     const {email, password} = req.body;
     const user =   await User.findOne({emailId: email , loginPassword: password})
     if(!user){
-        return res.render("login",{
-            error: "Invalid Login and Password"
-        })
-    }else{
-        res.redirect("/dashboard")
+        return res.redirect("/login");
+        
     }
-    res.redirect("/login")
+    const token = setUser( user);
+    
+    res.cookie("uid", token);
+    res.redirect("/dashboard");
+    
     
     
 }
 async function handleUnknowReq(req, res){
-    res.render("pageNotFound.ejs")
+    res.render("pageNotFound.ejs");
 }
 
 module.exports ={
     handleCreateNewUser,
-    loginUser,
+    handleloginUser,
     handleUnknowReq,
 }
