@@ -1,5 +1,5 @@
 const express = require("express");
-const {loginUser, handleCreateNewUser, handleUnknowReq} = require("../controller/loginAndSignin");
+const {handleloginUser, handleCreateNewUser, handleUnknowReq} = require("../controller/loginAndSignin");
 
 const router = express.Router();
 
@@ -9,7 +9,7 @@ router.get("/", (req, res)=>{
 router.get("/login", (req, res)=>{
   return res.render("login");
 })
-.post("/login",loginUser);
+.post("/login",handleloginUser);
 
 router.get("/registration",(req , res)=>{
   return res.render("registration_page");
