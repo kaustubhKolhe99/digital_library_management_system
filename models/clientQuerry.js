@@ -1,30 +1,27 @@
 const mongoose = require("mongoose");
 
-const querySchema = mongoose.Schema(
-    {
-        emailId:{
-            type: String,
-            required: true,
-        },
-        name : {
-            type: String,
-            required: true,
-        },
-        message:{
-            type:String,
-            required: true,
-        },
-        isAcknoledged:{
-            type: Boolean,
-            required: true,
-        },
-        raisedBy:{
-            type:mongoose.Schema.Types.ObjectId,
-            ref: "users",
-        }
+const QuerrySchema = mongoose.Schema({
+    emailId:{
+        type: String,
+        required:true,
     },
-    {timestamp: true}
-);
-const QUERY= mongoose.model("query", querySchema);
+    name:{
+        type:String,
+        required:true,
+    },
+    message:{
+        type:String,
+        required:true,
 
-module.exports = QUERY; 
+    },
+    isAcknoledged:{
+        type: Boolean,
+        required: true,
+
+    }
+},
+{timestamps: true}
+);
+
+const QUERRY = mongoose.model("queries", QuerrySchema)
+module.exports= QUERRY;

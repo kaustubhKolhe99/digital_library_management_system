@@ -88,6 +88,16 @@
             <div class="book-author">Author: Author Name 2</div>
             <div class="book-download"><a href="#">Download</a></div>
         </div>
+    <% allEBooks.forEach(eBook => { %>
+        <div class="book">
+            <div class="book-title"><%=eBook.title  %></div>
+            <div class="book-author">Author: <%=eBook.author  %></div>
+            <div class="book-download"><a href="/dashboard/ebook/<%=eBook.isbn%>">Download</a></div>
+        </div>
+    <% }) %>
+
+
+
         <!-- Add more book items with download links as necessary -->
     </div>
 </div>

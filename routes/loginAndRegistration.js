@@ -9,12 +9,12 @@ router.get("/", (req, res) => {
 router.get("/login", (req, res) => {
   return res.render("login");
 })
-  .post("/login", handleloginUser);
+.post("/login", handleloginUser);
 
 router.get("/registration", (req, res) => {
   return res.render("registration_page");
 })
-  .post("/registration", handleCreateNewUser);
+.post("/registration", handleCreateNewUser);
 
 
 //handling req which are not accounted for

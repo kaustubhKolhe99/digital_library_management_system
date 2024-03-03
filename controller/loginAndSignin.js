@@ -34,8 +34,8 @@ async function handleCreateNewUser(req, res) {
     } catch (error) {
         res.render("error.ejs")
     }
-
 }
+
 async function handleloginUser(req, res) {
     const { email, password } = req.body;
     const user = await User.findOne({ emailId: email, loginPassword: password })
@@ -47,10 +47,8 @@ async function handleloginUser(req, res) {
 
     res.cookie("uid", token);
     res.redirect("/dashboard");
-
-
-
 }
+
 async function handleUnknowReq(req, res) {
     res.render("pageNotFound.ejs");
 }

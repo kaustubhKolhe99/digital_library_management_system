@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const  Books= require("../models/books");
 const Query = require("../models/clientQuerry")
+const EBooks = require("../models/ebook")
 
 async function handleChangePassword(req, res){
     const {
@@ -52,9 +53,19 @@ async function handleSearchBooks(req, res){
     })
 }
 
+async function handleGetAllEBooks(req, res){
+    allEBooks = await EBooks.find({});
+    res.render("ebook", {
+        allEBooks,
+    })
+
+
+}
+
 module.exports={
-    handleChangePassword,
+    handleChangePassword,   
     handleProfiePage,
     handleHelpRequest,
     handleSearchBooks,
+    handleGetAllEBooks,
 }
