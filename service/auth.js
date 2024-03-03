@@ -1,25 +1,25 @@
 const jwt = require("jsonwebtoken");
 const secret = "superSecretStuffDoNotShareThis"
 
-function setUser( user ){
+function setUser(user) {
     const payload = {
-        _id : user._id,
-        email : user.emailId,
+        _id: user._id,
+        email: user.emailId,
     };
     return jwt.sign(payload, secret)
 }
 
-function getUser(token){
-    if(!token ) return null;
+function getUser(token) {
+    if (!token) return null;
     try {
-        return jwt.verify(token, secret);        
+        return jwt.verify(token, secret);
     } catch (error) {
         return null
     }
-    
+
 }
 
-module.exports= {
-    setUser, 
+module.exports = {
+    setUser,
     getUser,
 }
