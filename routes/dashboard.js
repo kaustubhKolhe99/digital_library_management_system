@@ -1,10 +1,8 @@
 const express = require("express");
-const { loginUser, handleCreateNewUser, handleUnknowReq } = require("../controller/loginAndSignin")
-const { } = require("../controller/loginAndSignin");
+const { handleUnknowReq } = require("../controller/loginAndSignin")
 const { checkAuth } = require("../middleware/auth");
-const { renderFile } = require("ejs");
-const User = require("../models/user");
-const { handleChangePassword } = require("../controller/dashboard");
+//const { renderFile } = require("ejs");
+const { handleChangePassword, handleProfiePage } = require("../controller/dashboard");
 
 const router = express.Router();
 
@@ -26,11 +24,10 @@ router.get("/help",checkAuth, (req, res) => {
     return res.render("help.ejs");
 })
     .post("/help",checkAuth, (req, res) => {
-        
+
     });
-router.get("/profile", checkAuth,(req, res) => {
-    return res.render("aboutuser2.ejs");
-});
+router.get("/profile", checkAuth, handleProfiePage);
+
 router.get("/borrowed", checkAuth,(req, res) => {
     return res.render("borrowed.ejs");
 });
@@ -41,3 +38,4 @@ router.get("/changepassword", checkAuth,(req, res) => {
     .post("/changepassword", checkAuth , handleChangePassword);
 router.get("/:anything", handleUnknowReq)
 module.exports = router;
+router.get("/:anything", handleUnknowReq);

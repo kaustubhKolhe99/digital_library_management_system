@@ -15,7 +15,15 @@ async function handleChangePassword(req, res){
     }
     return res.redirect("/dashboard/changepassword")
 }
+async function handleProfiePage(req, res){
+    const user = await User.findOne({emailId:req.user.email});
+    const abc = "hello"
+    return res.render("aboutuser.ejs" , {
+        user,
+    });
+}
 
 module.exports={
     handleChangePassword,
+    handleProfiePage
 }
