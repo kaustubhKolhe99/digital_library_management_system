@@ -2,17 +2,19 @@ const express = require("express");
 const { handleUnknowReq } = require("../controller/loginAndSignin")
 const { checkAuth } = require("../middleware/auth");
 //const { renderFile } = require("ejs");
-const { handleChangePassword, handleProfiePage,handleHelpRequest } = require("../controller/dashboard");
+const { 
+    handleChangePassword,
+    handleProfiePage,
+    handleHelpRequest, 
+    handleSearchBooks
+} = require("../controller/dashboard");
 
 const router = express.Router();
 
 router.get("/", checkAuth,(req, res) => {
     return res.render("dashboard.ejs")
 })
-router.get("/search", checkAuth,(req, res) => {
-
-    return res.render("search.ejs");
-})
+router.get("/search", checkAuth, handleSearchBooks)
     .post("/search",checkAuth, (req, res) => {
 
     });

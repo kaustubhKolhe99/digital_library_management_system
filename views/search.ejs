@@ -89,13 +89,32 @@
             <div class="book-author">Author: Author Name 1</div>
             <div class="book-availability">Available</div>
         </div>
+        
+    <% allBooks.forEach(book => { %>
+        <div class= "book-item">
+            <div class= "book-title" > <%= book.title %></div>
+            <div class= "book-author" > <%= book.author %></div>
+            <div class= "book-availability" > <% if (book.currentHolder != null) { %>
+                not Available
+                <% } else { %>
+                    Available
+                <% } %>
+            </div>         
+        </div>
+    <% }) %>
+
         <div class="book-item">
             <div class="book-title">Book Title 2</div>
             <div class="book-author">Author: Author Name 2</div>
             <div class="book-availability">Unavailable</div>
         </div>
-        <!-- Add more book items as necessary -->
+        <div class="book-item">
+            <div class="book-title">Book Title 3</div>
+            <div class="book-author">Author: Author Name 3</div>
+            <div class="book-availability">Unavailable</div>
+        </div>
     </div>
+    
 </div>
 </body>
 </html>

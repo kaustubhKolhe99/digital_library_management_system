@@ -25,6 +25,6 @@ const querySchema = mongoose.Schema(
     },
     {timestamp: true}
 );
-const Query= mongoose.model("query", querySchema);
+const QUERY= mongoose.model("query", querySchema);
 
-module.exports = Query; 
+module.exports = QUERY; 

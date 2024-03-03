@@ -6,12 +6,12 @@ const booksSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    bookName: {
+    title: {
       type: String,
       required: true,
       unique: false
     },
-    authorName: {
+    author: {
       type: String,
       required: true,
       unique: false

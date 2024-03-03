@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const  Books= require("../models/books");
 const Query = require("../models/clientQuerry")
 
 async function handleChangePassword(req, res){
@@ -17,8 +18,7 @@ async function handleChangePassword(req, res){
     return res.redirect("/dashboard/changepassword")
 }
 async function handleProfiePage(req, res){
-    const user = await User.findOne({emailId:req.user.email});
-    const abc = "hello"
+    const user = await User.findOne({emailId:req.user.email}); 
     return res.render("aboutuser.ejs" , {
         user,
     });
@@ -44,12 +44,17 @@ async function handleHelpRequest(req, res){
         res.render("error")
     }
     res.redirect("/dashboard");
-
-
+}
+async function handleSearchBooks(req, res){
+    allBooks = await Books.find({})
+    res.render("search",{
+        allBooks
+    })
 }
 
 module.exports={
     handleChangePassword,
     handleProfiePage,
     handleHelpRequest,
+    handleSearchBooks,
 }
