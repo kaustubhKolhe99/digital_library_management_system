@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const querySchema = mongoose.Schema(
     {
-        email:{
+        emailId:{
             type: String,
             required: true,
         },
@@ -14,7 +14,7 @@ const querySchema = mongoose.Schema(
             type:String,
             required: true,
         },
-        status:{
+        isAcknoledged:{
             type: Boolean,
             required: true,
         },
@@ -25,6 +25,6 @@ const querySchema = mongoose.Schema(
     },
     {timestamp: true}
 );
-const QUERY= mongoose.model("helpAndSupport", querySchema);
+const Query= mongoose.model("query", querySchema);
 
-module.exports = QUERY; 
+module.exports = Query; 

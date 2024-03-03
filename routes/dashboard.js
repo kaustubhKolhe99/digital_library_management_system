@@ -2,7 +2,7 @@ const express = require("express");
 const { handleUnknowReq } = require("../controller/loginAndSignin")
 const { checkAuth } = require("../middleware/auth");
 //const { renderFile } = require("ejs");
-const { handleChangePassword, handleProfiePage } = require("../controller/dashboard");
+const { handleChangePassword, handleProfiePage,handleHelpRequest } = require("../controller/dashboard");
 
 const router = express.Router();
 
@@ -23,9 +23,7 @@ router.get("/ebook",checkAuth, (req, res) => {
 router.get("/help",checkAuth, (req, res) => {
     return res.render("help.ejs");
 })
-    .post("/help",checkAuth, (req, res) => {
-
-    });
+    .post("/help",checkAuth, handleHelpRequest);
 router.get("/profile", checkAuth, handleProfiePage);
 
 router.get("/borrowed", checkAuth,(req, res) => {

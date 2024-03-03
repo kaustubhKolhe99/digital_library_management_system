@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Query = require("../models/clientQuerry")
 
 async function handleChangePassword(req, res){
     const {
@@ -22,8 +23,33 @@ async function handleProfiePage(req, res){
         user,
     });
 }
+async function handleHelpRequest(req, res){
+    const {
+        name,
+        email,
+        message
+    } = req.body;
+    try {
+        await Query.create({
+            emailId:email,
+            name: name,
+            message:message,
+            isAcknoledged: false,
+            raisedBy: req.user._id,
+            
+        });
+        
+    } catch (error) {
+        console.log(error)
+        res.render("error")
+    }
+    res.redirect("/dashboard");
+
+
+}
 
 module.exports={
     handleChangePassword,
-    handleProfiePage
+    handleProfiePage,
+    handleHelpRequest,
 }
