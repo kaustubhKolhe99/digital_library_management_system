@@ -1,7 +1,8 @@
 const User = require("../models/user");
 const { setUser, getUser } = require("../service/auth");
 async function handleCreateNewUser(req, res) {
-    const { name,
+    const { 
+        name,
         email,
         mobile,
         student_id,

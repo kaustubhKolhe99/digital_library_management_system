@@ -2,13 +2,8 @@ const mongoose = require("mongoose");
 
 const booksSchema = new mongoose.Schema(
   {
-    bookId: {
-      type: String,
-      required: true,
-      unique: true,
-    },
     isbn: {
-      type: String,
+      type: Number,
       required: true,
     },
     bookName: {
@@ -22,10 +17,10 @@ const booksSchema = new mongoose.Schema(
       unique: false
     },
     currentHolder: {
-      type: mongoose.Schema.booksSchema,
-      ref: BOOKS,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "users",
     },
-    allocationHistory: [{ UserId: { type: String } }]
+    //allocationHistory: [{ UserId: { type: String } }]
   },
   { timestamps: true }
 );
