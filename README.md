@@ -15,7 +15,7 @@ This is a digital library management system designed to manage books, users, bor
 
 ## Technologies Used
 - Frontend: HTML, CSS, JavaScript
-- Backend: Node.js, Express.js
+- Backend: Node.js, Express.js, JWT
 - Database: MongoDB
 
 ## Setup Instructions
@@ -42,5 +42,5 @@ Contributions are welcome! If you find any bugs or have suggestions for improvem
 This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
-For any inquiries or support, please contact [kaustubh Kolhe](mailto:kaustubhk375@gmail.com).
+For any inquiries or support, please contact [Kaustubh Kolhe](mailto:kaustubhk375@gmail.com).
 

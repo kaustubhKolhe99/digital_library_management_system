@@ -3,52 +3,52 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
     {
-        student_id:{
+        student_id: {
             type: String,
             required: true,
             unique: true,
         },
         emailId: {
-            type : String,
+            type: String,
             required: true,
             unique: true,
         },
         name: {
-            type : String,
+            type: String,
             required: true,
         },
-        loginPassword:{
+        loginPassword: {
             type: String,
-            required : true,
+            required: true,
         },
-        tempaddress:{
+        tempaddress: {
             type: String,
-            required : true,
+            required: true,
         },
-        permantAddress:{
+        permantAddress: {
             type: String,
-            required : true,
+            required: true,
         },
-        contactNo:{
+        contactNo: {
             type: String,
-            required : true,
+            required: true,
             unique: true,
         },
-        dob:{
+        dob: {
             type: Date,
-            required : true,
+            required: true,
         },
-        yearOfStudying :{
+        yearOfStudying: {
             type: String,
-            required : true,
+            required: true,
         },
-        department:{
+        department: {
             type: String,
-            required : true,
+            required: true,
         },
-        isAdmin:{
+        isAdmin: {
             type: Boolean,
-            require : true,
+            require: true,
         }
     }
 )

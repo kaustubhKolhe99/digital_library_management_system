@@ -7,30 +7,28 @@ const booksSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    isbn:{
+    isbn: {
       type: String,
-      required : true,
-  },
+      required: true,
+    },
     bookName: {
       type: String,
       required: true,
-      unique:false
+      unique: false
     },
     authorName: {
       type: String,
       required: true,
-      unique:false
+      unique: false
     },
     currentHolder: {
-      type: String
+      type: mongoose.Schema.booksSchema,
+      ref: BOOKS,
     },
-    allocationHistory:[{UserId: {type: String}}]
+    allocationHistory: [{ UserId: { type: String } }]
   },
   { timestamps: true }
 );
 const BOOKS = mongoose.model("books", booksSchema);
 
 module.exports = BOOKS;
-
-
-
