@@ -18,6 +18,10 @@ const QuerrySchema = mongoose.Schema({
         type: Boolean,
         required: true,
 
+    },
+    raisedBy:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"users",
     }
 },
 {timestamps: true}
