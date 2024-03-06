@@ -6,7 +6,11 @@ const {
     handleProfiePage,
     handleHelpRequest, 
     handleSearchBooks,
-    handleGetAllEBooks
+    handleGetAllEBooks,
+    handleDownloadBookByIsbn,
+    handleGetAllBorrowedBooksByUser,
+    handleReturnBorrowedBook,
+    handleBorrowABook,
 } = require("../controller/dashboard");
 
 const router = express.Router();
@@ -16,9 +20,8 @@ router.get("/", checkAuth,(req, res) => {
 });
 
 router.get("/search", checkAuth, handleSearchBooks)
-.post("/search",checkAuth, (req, res) => {
-
-});
+.post("/search",checkAuth, handleBorrowABook);
+router.get("/ebook/:isbn", checkAuth,handleDownloadBookByIsbn)
 
 router.get("/ebook",checkAuth, handleGetAllEBooks)
 
@@ -29,14 +32,17 @@ router.get("/help",checkAuth, (req, res) => {
 
 router.get("/profile", checkAuth, handleProfiePage);
 
-router.get("/borrowed", checkAuth,(req, res) => {
-    return res.render("borrowed.ejs");
-});
+router.get("/borrowed", checkAuth, handleGetAllBorrowedBooksByUser)
+.post("/borrowed", checkAuth, handleReturnBorrowedBook);
 
 router.get("/changepassword", checkAuth,(req, res) => {
     return res.render("changepassword.ejs");
 })
 .post("/changepassword", checkAuth , handleChangePassword);
+
+router.get("/aboutus", checkAuth, (req, res)=>{
+    res.render("aboutus")
+} );
 
 router.get("/:anything", handleUnknowReq)
 

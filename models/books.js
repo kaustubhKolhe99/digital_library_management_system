@@ -5,6 +5,7 @@ const booksSchema = new mongoose.Schema(
     isbn: {
       type: Number,
       required: true,
+      unique: true,
     },
     title: {
       type: String,
@@ -19,6 +20,7 @@ const booksSchema = new mongoose.Schema(
     currentHolder: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "users",
+      default:null,
     },
     //allocationHistory: [{ UserId: { type: String } }]
   },

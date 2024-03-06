@@ -79,21 +79,17 @@
 <body>
 <div class="container">
     <div class="header">Search Books</div>
-    <form class="search-form" action="#" method="get">
-        <input type="text" name="query" placeholder="Search by Title or Author">
-        <button type="submit"><i class="fas fa-search"></i> Search</button>
+    <form class="search-form" action="/dashboard/search" method="post">
+        <input type="text" name="query" placeholder="enter the isbn of the book you want to borrow">
+        <button type="submit"><i class="fas fa-search"></i> Enter</button>
     </form>
     <div class="search-results">
-        <div class="book-item">
-            <div class="book-title">Book Title 1</div>
-            <div class="book-author">Author: Author Name 1</div>
-            <div class="book-availability">Available</div>
-        </div>
         
     <% allBooks.forEach(book => { %>
         <div class= "book-item">
             <div class= "book-title" > <%= book.title %></div>
             <div class= "book-author" > <%= book.author %></div>
+            <div class="book-isbn"><%= book.isbn %></div>
             <div class= "book-availability" > <% if (book.currentHolder != null) { %>
                 not Available
                 <% } else { %>

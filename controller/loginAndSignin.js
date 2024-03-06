@@ -37,16 +37,22 @@ async function handleCreateNewUser(req, res) {
 }
 
 async function handleloginUser(req, res) {
-    const { email, password } = req.body;
+    const { email, password , user_type } = req.body;
     const user = await User.findOne({ emailId: email, loginPassword: password })
     if (!user) {
         return res.redirect("/login");
-
     }
-    const token = setUser(user);
-
-    res.cookie("uid", token);
-    res.redirect("/dashboard");
+    if(user_type == "admin" && user.isAdmin == true){
+        const token = setUser(user);
+        res.cookie("uid", token);
+        res.redirect("/admin")
+    }else if( user_type == "user"){
+        const token = setUser(user);
+        res.cookie("uid", token);
+        res.redirect("/dashboard");
+    }else{
+        res.render("notAuthorized")
+    }   
 }
 
 async function handleUnknowReq(req, res) {
