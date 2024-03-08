@@ -10,12 +10,10 @@ const booksSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
-      unique: false
     },
     author: {
       type: String,
       required: true,
-      unique: false
     },
     currentHolder: {
       type: mongoose.Schema.Types.ObjectId,

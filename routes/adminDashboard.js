@@ -11,7 +11,10 @@ const router = express.Router();
 
 router.get("/", checkAuth ,handleGetAdminDashboard)
 router.get("/newmember",checkAuth, handleAddNewMember)
-router.get("/newbook", checkAuth, handleAddNewBook)
+router.get("/addbook", checkAuth, (req , res)=>{
+    res.render("addBook")
+})
+.post("/addbook", checkAuth, handleAddNewBook)
 router.get("/settings", checkAuth, handleGetSettings)
 
 

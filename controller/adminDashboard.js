@@ -3,6 +3,14 @@ const Users = require("../models/user")
 const Borrowings = require("../models/borrowing")
 
 async function handleAddNewBook(req ,res){
+    const {
+        title,
+        author,
+        isbn,
+    } =  req.body;
+    const addBook = await Books.create({isbn:isbn, title:title, author:author});
+    res.redirect("/admin/addbook")
+
 
 }
 async function handleAddNewMember(req ,res){
@@ -30,11 +38,11 @@ async function handleGetAdminDashboard(req, res){
     */
     const allBooks = await Books.find({});
     const allUsers = await Users.find({});
-    const totalBorrowed = await Borrowings.find({borrowedBy: {$ne: null}});
+    const borrowedBooks = await Books.find({currentHolder: {$ne: null}})
     const pageStats = {
         totalBooks: allBooks.length,
         totalUsers: allUsers.length,
-        totalBorrowed : totalBorrowed.length,
+        totalBorrowedBooks: borrowedBooks.length
     }
     res.render("admindashboard" , {
         pageStats,

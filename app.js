@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const { connectToMongoDB } = require("./connect")
 const loginpageRouter = require("./routes/loginAndRegistration")
 const express = require("express")
@@ -9,7 +11,7 @@ const adminDashboardRouter = require("./routes/adminDashboard")
 
 //const vars
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT;
 
 //ejs
 app.set("view engine", "ejs");
@@ -17,16 +19,16 @@ app.set('views', path.resolve("./views"));
 
 //middleware 
 app.use(cookieParser());
-//app.use(express.json());
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //connection to MongoDb
-connectToMongoDB("mongodb://127.0.0.1:27017/dlms").then(() => {
+connectToMongoDB(process.env.MONGO_URL).then(() => {
     console.log("MongoDB connected.....")
 })
 
 //Routers
-app.use("/admin",restrictedToAdminOnly,adminDashboardRouter );
+app.use("/admin",restrictedToAdminOnly,adminDashboardRouter);
 app.use("/dashboard", restrictedToLoginUserOnly, dashboardRouter); //restrictedToLoginUserOnly is a inline middleware
 app.use("/", loginpageRouter);
 
