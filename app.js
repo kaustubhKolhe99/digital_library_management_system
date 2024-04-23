@@ -33,7 +33,9 @@ if(cluster.isPrimary){
     app.use(express.urlencoded({ extended: false }));
 
     //connection to MongoDb
-    connectToMongoDB(process.env.MONGO_URL).then(() => {
+    //connectToMongoDB(process.env.MONGO_URL)
+    connectToMongoDB("mongodb://127.0.0.1:27017/dlms")
+    .then(() => {
        // console.log("MongoDB connected.....")
     });
 

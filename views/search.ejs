@@ -87,9 +87,9 @@
         
     <% allBooks.forEach(book => { %>
         <div class= "book-item">
-            <div class= "book-title" > <%= book.title %></div>
-            <div class= "book-author" > <%= book.author %></div>
-            <div class="book-isbn"><%= book.isbn %></div>
+            <div class= "book-title" > Title: <%= book.title %></div>
+            <div class= "book-author" > Author:  <%= book.author %></div>
+            <div class="book-isbn"> ISBN <%= book.isbn %></div>
             <div class= "book-availability" > <% if (book.currentHolder != null) { %>
                 not Available
                 <% } else { %>

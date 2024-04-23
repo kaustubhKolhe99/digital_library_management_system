@@ -1,10 +1,10 @@
 {
   "name": "digital_library_management_system",
   "version": "1.0.0",
-  "description": "this is a digital library management system, as a PBL project ",
+  "description": "this is a digital library management system ",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js ",
+    "start": "node app.js ",
     "dev": "nodemon app.js"
   },
   "repository": {

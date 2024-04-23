@@ -43,8 +43,14 @@ router.get("/changepassword", checkAuth,(req, res) => {
 router.get("/aboutus", checkAuth, (req, res)=>{
     res.render("aboutus")
 } );
+router.get("/logout", (req, res) => {
+    res.clearCookie("uid");
+    res.redirect("/");
+
+})
 
 router.get("/:anything", handleUnknowReq)
+
 
 
 module.exports = router;
